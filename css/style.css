@@ -1,132 +1,182 @@
+/* --------- Base / Reset --------- */
 * {
-    padding: 0;
     margin: 0;
-    font-family: "Gill Sans", sans-serif;
+    padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', 'Gill Sans', sans-serif;
 }
 
+/* Preserve single source of truth for fonts */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #222;
+    background: #fff;
+    line-height: 1.4;
+}
+
+/* --------- Hero / Navbar --------- */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
+    background-color: #fff0f5;
     width: 100%;
-    background-image: url(../images/figma-removebg-preview.png);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    display: block;
 }
 
+/* Navbar */
 nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 45px;
-    padding-left: 8%;
-    padding-right: 8%;
+    padding: 22px 8%;
+    background-color: #f5fffa;
+    gap: 12px;
+    position: relative;
+    z-index: 20;
 }
 
 .logo {
     color: #505050;
-    font-size: 35px;
+    font-size: 28px;
     letter-spacing: 1px;
     cursor: pointer;
+    font-weight: 700;
 }
 
-span {
+.logo span {
     color: #f9004d;
 }
 
+/* nav list */
+nav ul {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    list-style: none;
+    padding-left: 0;
+}
+
 nav ul li {
-    list-style-type: none;
     display: inline-block;
-    padding: 10px 25px;
 }
 
 nav ul li a {
-    font-size: 16px;
+    font-size: 15px;
     color: black;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 700;
     text-transform: capitalize;
+    padding: 10px 14px;
+    display: inline-block;
 }
 
 nav ul li a:hover {
     color: #f9004d;
-    transition: .4s;
+    transition: .25s;
 }
 
+/* subscribe button (keeps original look) */
 .btn {
-    font-size: 18px;
+    font-size: 16px;
     background-color: #f9004d;
     color: white;
     border: 2px solid transparent;
-    font-weight: bold;
-    padding: 10px 25px;
+    font-weight: 700;
+    padding: 8px 18px;
     text-decoration: none;
-    border-radius: 30px;
-    transition: transform .4s;
+    border-radius: 28px;
+    transition: transform .25s, opacity .25s;
+    display: inline-block;
 }
 
 .btn:hover {
-    transform: scale(1.2);
+    transform: scale(1.04);
+}
+
+/* --------- Hero content --------- */
+.hero-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 8%;
+    gap: 40px;
+    height: calc(100vh - 90px);
 }
 
 .content {
-    position: absolute;
-    top: 50%;
-    left: 8%;
-    transform: translateY(-50%);
+    max-width: 55%;
 }
 
 h1 {
     color: #505050;
-    margin: 20px 0 20px;
-    font-size: 75px;
+    margin: 16px 0;
+    font-size: 64px;
+    line-height: 1.03;
+    font-weight: 800;
+}
+
+h1 span {
+    color: #f9004d;
 }
 
 h3 {
     color: #191919;
-    margin-bottom: 50px;
-    font-size: 25px;
+    margin-bottom: 28px;
+    font-size: 22px;
+    font-weight: 600;
 }
 
 h4 {
     color: rgba(240, 10, 240, 0.8);
-    font-size: 22px;
-    letter-spacing: 2px;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+    font-weight: 600;
 }
 
+/* newsletter */
 .newslatter form {
     width: 380px;
     max-width: 100%;
     position: relative;
 }
 
-.newslatter form input:first-child {
-    display: inline-block;
+.newslatter form input[type="email"] {
     width: 100%;
-    padding: 14px 130px 14px 15px;
+    padding: 12px 140px 12px 14px;
     border: 2px solid #f9004d;
     outline: none;
-    border-radius: 30px;
+    border-radius: 28px;
+    font-size: 14px;
 }
 
-.newslatter form input:last-child {
+.newslatter form input[type="submit"] {
     position: absolute;
-    display: inline-block;
-    padding: 10px 30px;
+    padding: 8px 20px;
     border: none;
     outline: none;
-    border-radius: 30px;
+    border-radius: 24px;
     background-color: #f9004d;
     color: white;
-    box-shadow: 0 0 5px #000, 0 0 15px #858585;
     top: 6px;
     right: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
+/* hero image */
+.hero-content img {
+    width: 400px;
+    max-width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    display: block;
+}
+
+/* --------- About --------- */
 .about {
     width: 100%;
-    padding: 100px 0px;
+    padding: 80px 0;
     background-color: #f5fffa;
 }
 
@@ -134,11 +184,12 @@ h4 {
     height: 400px;
     width: 400px;
     border-radius: 50%;
+    object-fit: cover;
 }
 
 .about-text {
     width: 550px;
-    padding-top: 100px;
+    padding-top: 40px;
 }
 
 .main {
@@ -148,165 +199,209 @@ h4 {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    gap: 28px;
 }
 
+/* about text */
 .about-text h2 {
     color: black;
-    font-size: 75px;
+    font-size: 52px;
     text-transform: capitalize;
-    margin-bottom: 20px;
+    margin-bottom: 12px;
 }
 
 .about-text h5 {
     color: black;
-    font-size: 25px;
+    font-size: 20px;
     letter-spacing: 2px;
-    margin-bottom: 25px;
+    margin-bottom: 12px;
 }
 
 .about-text p {
     color: black;
-    font-size: 20px;
-    letter-spacing: 1px;
-    line-height: 28px;
-    margin-bottom: 45px;
+    font-size: 16px;
+    letter-spacing: 0.2px;
+    line-height: 1.6;
+    margin-bottom: 20px;
 }
 
-button {
-    font-size: 16px;
+.about button {
+    font-size: 14px;
     background-color: #f9004d;
     color: white;
-    text-decoration: none;
     border: 2px solid transparent;
-    font-weight: bold;
-    padding: 10px 30px;
-    border-radius: 30px;
-    transition: .4s;
+    font-weight: 700;
+    padding: 8px 20px;
+    border-radius: 28px;
 }
 
-button:hover {
-    background-color: transparent;
-    border: 2px solid #f9004d;
-    color: black;
-    cursor: pointer;
-}
-
+/* --------- Services --------- */
 .service {
     background-color: #dbe9f4;
     width: 100%;
-    padding: 100px 0;
+    padding: 80px 0;
 }
 
 .title h2 {
-    font-size: 75px;
+    font-size: 48px;
     color: #191919;
-    width: 1130px;
-    margin: 30px auto;
+    max-width: 1100px;
+    margin: 20px auto;
     text-align: center;
 }
 
 .title p {
-    width: 750px;
-    margin: 10px auto;
-    padding-bottom: 100px;
-    font-size: 20px;
+    max-width: 900px;
+    margin: 12px auto 40px;
+    font-size: 16px;
+    text-align: center;
 }
 
+/* cards */
 .box {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 400px;
+    gap: 18px;
+    flex-wrap: wrap;
 }
 
 .card {
-    height: 460px;
+    height: 420px;
     width: 335px;
-    padding: 20px 35px;
+    padding: 18px 22px;
     background: #f5fffa;
-    border-radius: 20px;
-    margin: 15px;
+    border-radius: 18px;
+    margin: 10px;
     position: relative;
     overflow: hidden;
     text-align: center;
 }
 
+.card:hover {
+    background-color: #d6b08b;
+    transition: all;
+}
+
 .card i {
-    font-size: 50px;
-    display: block;
-    text-align: center;
-    margin-bottom: 15px;
+    font-size: 42px;
+    margin-bottom: 12px;
     color: #191919;
 }
 
 .card h5 {
-    color: #191919;
-    font-size: 24px;
-    margin-bottom: 15px;
+    font-size: 20px;
+    margin-bottom: 12px;
+    font-weight: 700;
 }
 
 .pra p {
-    font-size: 18px;
+    font-size: 15px;
     color: rgba(12, 1, 12, 0.8);
-    line-height: 28px;
-    margin-bottom: 25px;
+    line-height: 1.6;
 }
 
+/* read more button */
 .card .button {
+    display: inline-block;
+    margin-top: 10px;
     font-size: 14px;
     background-color: #f9004d;
     color: white;
     text-decoration: none;
     border: 2px solid transparent;
-    font-weight: bold;
-    padding: 9px 22px;
-    border-radius: 30px;
-    transition: .4s;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 24px;
 }
 
-.card .button:hover {
-    background-color: transparent;
-    border: 2px solid #f9004d;
-    color: #191919;
-    cursor: pointer;
+/* --------- Contact & Footer --------- */
+.pf-section {
+    padding: 60px 18px;
+    background: #ffffff;
+    color: #222;
+    font-family: "Inter", sans-serif;
 }
 
-.contact-me {
-    width: 100%;
-    height: 290px;
-    background: #191919;
+.pf-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.pf-title {
+    font-size: 34px;
+    padding-bottom: 10px;
+    margin: 0 0 6px;
+    font-weight: 700;
+}
+
+.pf-sub {
+    margin: 0 0 28px;
+    color: #666;
+    font-size: 16px;
+}
+
+.pf-contact-wrap {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 22px;
+    align-items: start;
+}
+
+.pf-contact-info,
+.pf-contact-form {
+    background: #ffe5d1;
+    padding: 16px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(12, 20, 40, 0.04);
+}
+
+.pf-row {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    gap: 12px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.pf-field {
+    flex: 1 1 50%;
+    display: flex;
     flex-direction: column;
 }
 
-.contact-me p {
-    font-size: 30px;
-    font-weight: bold;
-    color: white;
-    margin-bottom: 25px;
-    text-transform: capitalize;
+.pf-field-full {
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
 }
 
-.contact-me .button-two {
-    font-size: 16px;
-    background-color: #f9004d;
-    color: white;
-    text-decoration: none;
-    border: 2px solid transparent;
-    font-weight: bold;
-    padding: 9px 22px;
-    border-radius: 30px;
-    transition: .4s;
+.pf-contact-form input,
+.pf-contact-form textarea {
+    border: 1px solid #e0e6ef;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
 }
 
-.contact-me .button-two:hover {
-    background-color: transparent;
-    border: 2px solid #f9004d;
+.pf-contact-form input:focus,
+.pf-contact-form textarea:focus {
+    border-color: #d6b08b;
+    box-shadow: 0 6px 18px rgba(216, 150, 100, 0.08);
+}
+
+.pf-btn {
+    background: #FD6E0A;
+    color: #fff;
+    border: 0;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 700;
     cursor: pointer;
 }
 
+/* Footer */
 .footer {
     width: 100%;
     padding: 100px 15%;
@@ -344,14 +439,17 @@ button:hover {
 .col-2 {
     flex-grow: 2;
 }
-.col-2 button:hover{
+
+.col-2 button:hover {
     background: #191919;
     color: white;
     transition: 0.7s;
 }
-.col-2 form input{
+
+.col-2 form input {
     background: #2b7a2b;
 }
+
 .footer form input {
     width: 400px;
     height: 45px;
@@ -390,64 +488,64 @@ button:hover {
     color: white;
 }
 
-/* ===== Namespaced portfolio styles (pf-*) ===== */
-
-.pf-section {
-    padding: 60px 18px;
-    background: #ffffff;
-    color: #222;
-    font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+/* Tables and skills */
+.overflow-x-auto {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
-.pf-container {
-    max-width: 1100px;
-    margin: 0 auto;
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: "Inter", Arial, sans-serif;
+    min-width: 500px;
 }
 
-/* Titles */
-.pf-title {
-    font-size: 38px;
-    padding-bottom: 10px;
-    margin: 0 0 6px;
-    font-weight: 700;
+.custom-table thead {
+    background-color: #FD6E0A;
+    color: #fff;
 }
 
-.pf-sub {
-    margin: 0 0 28px;
-    color: #666;
-    font-size: 20px;
+.custom-table th,
+.custom-table td {
+    padding: 12px;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 14px;
+    text-align: left;
 }
 
-/* Skills grid */
+.custom-table tbody th:first-child {
+    text-align: center;
+    width: 50px;
+}
+
+.custom-table tbody tr:nth-child(odd) {
+    background-color: #f8f8f8;
+}
+
+.custom-table tbody tr:hover {
+    background-color: #ffe5d1;
+    transition: background-color .2s;
+}
+
 .pf-skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 18px;
-    padding-top: 100px;
+    padding-top: 36px;
 }
 
 .pf-skill-card {
-    padding: 16px;
+    padding: 14px;
     border-radius: 10px;
     background: #f8f9fb;
     box-shadow: 0 2px 6px rgba(13, 22, 40, 0.04);
 }
 
-.pf-skill-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: 600;
-    margin-bottom: 10px;
-    font-size: 14px;
-}
-
-.pf-skill-percent {
-    font-weight: 700;
-    color: #333;
-}
-
-/* Progress */
 .pf-progress {
     height: 10px;
     width: 100%;
@@ -459,205 +557,89 @@ button:hover {
 .pf-progress-bar {
     height: 100%;
     background: linear-gradient(90deg, #FD6E0A, #FF9A3C);
-    /* will pick default color from CSS - ok */
     border-radius: 999px;
     transition: width .9s cubic-bezier(.2, .9, .4, 1);
 }
 
-/* Contact section layout */
-.pf-contact-section .pf-contact-wrap {
-    display: grid;
-    grid-template-columns: 340px 1fr;
-    gap: 28px;
-    align-items: start;
-}
-
-/* contact info card */
-.pf-contact-info {
-    background: #ffe5d1;
-    margin-top: 70px;
-    padding: 18px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(105, 117, 149, 0.04);
-}
-
-.pf-contact-info h3 {
-    margin-top: 0;
-}
-.pf-contact-info p{
-    padding-bottom: 18px;
-}
-/* contact form */
-.pf-contact-form {
-    background: #ffe5d1;
-    padding: 18px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(12, 20, 40, 0.04);
-}
-
-.pf-row {
-    display: flex;
-    gap: 14px;
-    font-weight: bold;
-    margin-bottom: 12px;
-}
-
-.pf-field {
-    flex: 1 1 50%;
-    display: flex;
-    flex-direction: column;
-}
-
-.pf-field-full {
-    flex: 1 1 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.pf-contact-form label {
-    font-size: 13px;
-    margin-bottom: 6px;
-    color: #444;
-}
-
-.pf-contact-form input,
-.pf-contact-form textarea {
-    border: 1px solid #e0e6ef;
-    padding: 10px 12px;
+/* --------- Mobile Menu Toggle (injected by JS) --------- */
+.mobile-toggle {
+    display: none;
+    /* shown on small screens by media query */
+    width: 44px;
+    height: 44px;
     border-radius: 8px;
-    font-size: 14px;
-    outline: none;
-    transition: box-shadow .15s, border-color .15s;
-}
-
-.pf-contact-form input:focus,
-.pf-contact-form textarea:focus {
-    border-color: #d6b08b;
-    box-shadow: 0 6px 18px rgba(216, 150, 100, 0.08);
-}
-
-/* button + status */
-.pf-actions {
     align-items: center;
-    gap: 12px;
-}
-
-.pf-btn {
-    background: #FD6E0A;
-    color: #fff;
-    border: 0;
-    padding: 10px 16px;
-    border-radius: 8px;
-    font-weight: 700;
+    justify-content: center;
     cursor: pointer;
-    box-shadow: 0 6px 18px rgba(253, 110, 10, 0.14);
+    border: 0;
+    background: transparent;
 }
 
-.pf-btn:active {
-    transform: translateY(1px);
+/* animated bars */
+.mobile-toggle .bar {
+    width: 22px;
+    height: 2px;
+    background: #191919;
+    display: block;
+    margin: 3px 0;
+    transition: all .25s ease;
 }
 
-.pf-form-status {
-    font-size: 14px;
-    color: #2b7a2b;
-    margin-left: 6px;
+/* when nav is open, class 'nav-open' is set on nav by JS */
+nav.nav-open ul {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+    background: #f5fffa;
+    padding: 14px;
+    border-radius: 8px;
+    position: absolute;
+    top: 68px;
+    right: 8%;
+    width: 220px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
 }
 
-@media (max-width: 880px) {
-    .pf-contact-section .pf-contact-wrap {
-        grid-template-columns: 1fr;
+nav.nav-open .mobile-toggle .bar:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+    width: 22px;
+}
+
+nav.nav-open .mobile-toggle .bar:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0.2);
+}
+
+nav.nav-open .mobile-toggle .bar:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+    width: 22px;
+}
+
+/* Make sure nav ul default style on small screens is hidden (controlled below) */
+
+/* --------- Responsive Breakpoints --------- */
+
+/* Large laptops and down */
+@media (max-width: 1200px) {
+    h1 {
+        font-size: 56px;
     }
 
-    .pf-row {
-        flex-direction: column;
+    .about-text h2 {
+        font-size: 44px;
     }
 
-    .pf-field,
-    .pf-field-full {
-        width: 100%;
+    .hero-content {
+        gap: 28px;
+        padding-top: 28px;
     }
 
-    .pf-skills-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    .hero-content img {
+        width: 360px;
     }
 
-    .pf-section {
-        padding: 40px 14px;
-    }
-}
-
-/* === Scrollable container === */
-.overflow-x-auto {
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    margin: 20px 0;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
-
-/* === Custom table === */
-.custom-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-family: "Inter", Arial, sans-serif;
-    min-width: 500px;
-}
-
-/* === Table Header === */
-.custom-table thead {
-    background-color: #FD6E0A;
-    /* your main accent color */
-    color: white;
-}
-
-.custom-table th {
-    text-align: left;
-    padding: 14px 12px;
-    font-weight: 600;
-    font-size: 15px;
-}
-
-/* === Table Body === */
-.custom-table td,
-.custom-table th {
-    padding: 12px 12px;
-    border-bottom: 1px solid #e5e5e5;
-}
-
-/* First column (number) */
-.custom-table tbody th:first-child,
-.custom-table thead th:first-child {
-    text-align: center;
-    width: 50px;
-    font-weight: 600;
-}
-
-/* === Zebra striping === */
-.custom-table tbody tr:nth-child(odd) {
-    background-color: #f8f8f8;
-}
-
-.custom-table tbody tr:nth-child(even) {
-    background-color: #ffffff;
-}
-
-/* === Hover effect === */
-.custom-table tbody tr:hover {
-    background-color: #ffe5d1;
-    transition: background-color 0.3s ease;
-}
-
-/* === Responsive === */
-@media (max-width: 600px) {
-
-    .custom-table th,
-    .custom-table td {
-        padding: 10px 8px;
-        font-size: 14px;
-    }
-
-    .custom-table {
-        min-width: 400px;
+    .main {
+        gap: 20px;
     }
 }
